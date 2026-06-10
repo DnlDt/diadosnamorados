@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- linka as fontes do google para o seu site. href é o link exato de onde vai pegar essa fonte. rel vai ser sempre padrao -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +13,6 @@
     <nav class="menu-navegacao">
         <a href="#" onclick="mostrarAba('home')">HOME</a>
         <a href="#" onclick="mostrarAba('quiz')">QUIZ</a>
-        <a href="#" onclick="mostrarAba('capsula')">CÁPSULA ⏳</a>
     </nav>
 
     <header>
@@ -21,6 +21,7 @@
 
     <main class="conteudo-principal">
 
+        <!-- ABA HOME -->
         <div id="aba-home">
             <div class="card-romantico">
                 <img src="imagens.jpg" alt="foto do casal" class="foto-casal">
@@ -37,11 +38,52 @@
                 <button class="btn-roleta" onclick="sortearDate()">Girar a Roleta 🎲</button>
             </div>
 
+            <!-- INÍCIO CÁPSULA DO TEMPO NA HOME -->
+            <div class="card-romantico" style="margin-top: 30px;">
+                <h2 style="color: #4a2834; margin-top: 0;">Cápsula do Tempo ⏳</h2>
+                
+                <!-- ESTADO 1: ESCREVER MENSAGEM -->
+                <div id="capsula-escrever">
+                    <p class="texto-romantico">Escreva aqui uma mensagem para o amor da sua vida. Ela será trancada a sete chaves e só poderá ser lida no próximo Dia dos Namorados!</p>
+                    <textarea id="texto-capsula" class="caixa-texto" placeholder="Digite tudo o que você sente aqui..." rows="6"></textarea>
+                    <button class="btn-start" style="margin-top: 15px;" onclick="trancarCapsula()">Trancar Mensagem 🔒</button>
+                </div>
+
+                <!-- ESTADO 2: CADEADO E CONTADOR -->
+                <div id="capsula-fechada" class="hidden">
+                    <div style="font-size: 5rem; margin: 20px 0; animation: pulsar 2s infinite;">🔒</div>
+                    <p class="texto-romantico">Sua mensagem está super protegida! Ela só será revelada quando esta contagem zerar:</p>
+                    
+                    <div class="caixa-contador">
+                        <div class="tempo"><span id="dias">00</span><p>Dias</p></div>
+                        <div class="tempo"><span id="horas">00</span><p>Horas</p></div>
+                        <div class="tempo"><span id="minutos">00</span><p>Min</p></div>
+                        <div class="tempo"><span id="segundos">00</span><p>Seg</p></div>
+                    </div>
+
+                    <!-- Botão para você testar (Pode apagar antes de enviar o site) -->
+                    <button class="btn-resposta" style="margin-top: 20px; font-size: 0.8rem; padding: 10px;" onclick="abrirCapsulaForcada()">[Teste] Abrir Cápsula Agora</button>
+                </div>
+
+                <!-- ESTADO 3: MENSAGEM REVELADA -->
+                <div id="capsula-aberta" class="hidden">
+                    <div style="font-size: 5rem; margin: 20px 0;">🔓</div>
+                    <h3 style="color: #e63946;">O tempo passou!</h3>
+                    <p class="texto-romantico">Aqui está o que foi escrito no passado para você ler hoje:</p>
+                    
+                    <div class="caixa-mensagem-revelada">
+                        <p id="mensagem-futuro-texto"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- FIM CÁPSULA DO TEMPO NA HOME -->
+
             <div class="area-botao-start">
                 <button class="btn-start" onclick="mostrarAba('quiz')">Fazer o Teste de Compatibilidade</button>
             </div>
         </div>
 
+        <!-- ABA QUIZ -->
         <div id="aba-quiz" class="hidden">
             <div id="tela-inicio-quiz" class="card-romantico">
                 <h2>Teste de Compatibilidade 💘</h2>
@@ -70,52 +112,15 @@
                 <h2 style="color: #e63946; font-size: 2rem;">Compatibilidade: 99.9% ❤️</h2>
                 <p>Com uma nota dessas, a ciência comprova que a gente foi feito um pro outro...</p>
                 <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2rem; color: #4a2834; margin: 20px 0;">Feliz Dia dos Namorados!<br>Te amo infinito! ❤️</h1>
-                <div class="botoes-finais">
-                    <button class="btn-sim" style="width: 100%;" onclick="window.open('https://wa.me/SEU_NUMERO_AQUI?text=Amor, fiz o seu teste! Nossa compatibilidade é 99.9% e o nosso Date já está sorteado! ❤️', '_blank')">Mandar mensagem pra mim! 📱</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="aba-capsula" class="hidden">
-            <div class="card-romantico">
-                <h2 style="color: #4a2834; margin-top: 0;">Cápsula do Tempo ⏳</h2>
-                
-                <div id="capsula-escrever">
-                    <p class="texto-romantico">Escreva aqui uma mensagem para o amor da sua vida. Ela será trancada a sete chaves e só poderá ser lida no próximo Dia dos Namorados!</p>
-                    <textarea id="texto-capsula" class="caixa-texto" placeholder="Digite tudo o que você sente aqui..." rows="6"></textarea>
-                    <button class="btn-start" style="margin-top: 15px;" onclick="trancarCapsula()">Trancar Mensagem 🔒</button>
-                </div>
-
-                <div id="capsula-fechada" class="hidden">
-                    <div style="font-size: 5rem; margin: 20px 0; animation: pulsar 2s infinite;">🔒</div>
-                    <p class="texto-romantico">Sua mensagem está super protegida! Ela só será revelada quando esta contagem zerar:</p>
-                    
-                    <div class="caixa-contador">
-                        <div class="tempo"><span id="dias">00</span><p>Dias</p></div>
-                        <div class="tempo"><span id="horas">00</span><p>Horas</p></div>
-                        <div class="tempo"><span id="minutos">00</span><p>Min</p></div>
-                        <div class="tempo"><span id="segundos">00</span><p>Seg</p></div>
-                    </div>
-
-                    <button class="btn-resposta" style="margin-top: 20px; font-size: 0.8rem; padding: 10px;" onclick="abrirCapsulaForcada()">[Teste] Abrir Cápsula Agora</button>
-                </div>
-
-                <div id="capsula-aberta" class="hidden">
-                    <div style="font-size: 5rem; margin: 20px 0;">🔓</div>
-                    <h3 style="color: #e63946;">O tempo passou!</h3>
-                    <p class="texto-romantico">Aqui está o que foi escrito no passado para você ler hoje:</p>
-                    
-                    <div class="caixa-mensagem-revelada">
-                        <p id="mensagem-futuro-texto"></p>
-                    </div>
-                </div>
             </div>
         </div>
 
     </main>
 
+    <!-- Ursinho Flutuante -->
     <div class="urso-flutuante" onclick="abrirCartinha()">🧸💌</div>
 
+    <!-- Modal da Cartinha -->
     <div id="modal-carta" class="modal-fundo hidden">
         <div class="modal-conteudo card-romantico">
             <span class="fechar-modal" onclick="fecharCartinha()">&times;</span>
