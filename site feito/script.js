@@ -5,6 +5,7 @@ window.onload = function() {
 
 // Navegação das Abas
 function mostrarAba(aba) {
+    //
     document.getElementById("aba-home").classList.add("hidden");
     document.getElementById("aba-quiz").classList.add("hidden");
 

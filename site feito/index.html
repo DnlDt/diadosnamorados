@@ -1,3 +1,4 @@
+<!-- tudo oq vc botar aq vai aparecer sem nada, o html seria como o visual do site, vc pode criar botoes como o <a> no nav mas se nao tiver o js ele nao vai executar nada, o html é o visual o js é o background onde vc bota oq vai acontecer por tras quando vc clicar aquele botao  -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +12,12 @@
 <body>
 
     <nav class="menu-navegacao">
+        <!-- nav é o menu de navegação onde geralmente fica a home, e outras coisas. fica no topo do site.    o class é onde o css consegue identificar oq ele ta alterando e entrar em ação  -->
         <a href="#" onclick="mostrarAba('home')">HOME</a>
         <a href="#" onclick="mostrarAba('quiz')">QUIZ</a>
+        <!-- você cria o <a> para criar um negocio de navegação la em cima, por exemplo o home,e ele ja vem junto com o href, o href seria onde a pessoa vai parar quando clicar no botão, quando você bota #, força o usuario a ficar na mesma pagina -->
+            
+        <!-- onclick vai chamar a funcao mostrarAba la no js. Quando no HTML você clica no botão e o código executa mostrarAba('home'), a palavra 'home' viaja até o JS e cai dentro dessa caixinha chamada aba. continua linha 8 js -->
     </nav>
 
     <header>
