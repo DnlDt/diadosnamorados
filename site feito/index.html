@@ -15,9 +15,9 @@
         <!-- nav é o menu de navegação onde geralmente fica a home, e outras coisas. fica no topo do site.    o class é onde o css consegue identificar oq ele ta alterando e entrar em ação  -->
         <a href="#" onclick="mostrarAba('home')">HOME</a>
         <a href="#" onclick="mostrarAba('quiz')">QUIZ</a>
-        <!-- você cria o <a> para criar um negocio de navegação la em cima, por exemplo o home,e ele ja vem junto com o href, o href seria onde a pessoa vai parar quando clicar no botão, quando você bota #, força o usuario a ficar na mesma pagina -->
+        <!-- você cria o <a> o botão, por exemplo o home,e ele ja vem junto com o href, o href seria onde a pessoa vai parar quando clicar no botão, quando você bota #, força o usuario a ficar na mesma pagina -->
             
-        <!-- onclick vai chamar a funcao mostrarAba la no js. Quando no HTML você clica no botão e o código executa mostrarAba('home'), a palavra 'home' viaja até o JS e cai dentro dessa caixinha chamada aba. continua linha 8 js -->
+        <!-- onclick vai chamar a funcao mostrarAba la no js. quando a pessoa clica em home por exemplo, o html vai ver essa função mostraraba(aba) no js e ai aba = "home" continua linha 8 js -->
     </nav>
 
     <header>
@@ -25,10 +25,11 @@
     </header>
 
     <main class="conteudo-principal">
-
-        <!-- ABA HOME -->
+        <!-- main é o conteudo principal do site -->
         <div id="aba-home">
+        <!-- O id serve para identificar um elemento único na página inteira. Não podem existir dois elementos com o mesmo id. -->
             <div class="card-romantico">
+        <!-- A class serve para identificar um grupo de elementos que vão ter o mesmo estilo visual. Você pode repetir a mesma classe quantas vezes quiser no site. -->
                 <img src="imagens.jpg" alt="foto do casal" class="foto-casal">
                 <p class="texto-romantico">
                     "Todo ano alguma pessoa encontra alguém especial para ela... E no meu caso, a pessoa mais especial do mundo inteiro é você." ❤️

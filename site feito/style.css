@@ -304,7 +304,15 @@ header h1 {
 }
 
 .hidden {
+    /* esse .hidden pode ser qualquer nome, depende oq vc vai botar no js, poderia ser por exemplo classlist.add("a") no js q aq seria .a com o display none para fazer o elemento sumir */
     display: none !important;
+    /* existem varios tipos de display, esse display: none significa, literalmente: "Não exista na tela". é oq faz o elemento sumir da tela*/
+    /* ele não apenas deixa o elemento transparente; ele remove o espaço dele. É como se o elemento fosse apagado do mapa. O botão some, o texto some, a caixona some. */
+    
+    /* display: block; significa: "Apareça como um bloco sólido".
+    display: flex; significa: "Apareça e organize seus filhos em linha ou coluna". */
+
+    /* O !important é uma ferramenta do CSS que significa, literalmente: "Isso aqui é prioridade máxima, ignore qualquer outra ordem!". */
 }
 
 .barra-fundo {

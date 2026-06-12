@@ -5,10 +5,13 @@ window.onload = function() {
 
 // Navegação das Abas
 function mostrarAba(aba) {
-    //
+    //se a pessoa clicar no quiz por exemplo, aba = "quiz"
     document.getElementById("aba-home").classList.add("hidden");
     document.getElementById("aba-quiz").classList.add("hidden");
-
+    //document.getElementById("..."): Significa Procurar no documento HTML um elemento que tenha o ID tal, por exemplo o aba-home. ele vai la no html e vai procurar esse elemento para executar a função de esconder
+    //.classList.add("hidden"): significa que os elementos aba-home e aba-quiz vão receber tal classe, no caso a classe "hidden", q lá no css (linha 306) foi oq nós usamos para fazer isso realmente sumir
+    //Usamos esse codigo para limpar o palco e garantir que nenhuma tela fique clonada ou amontoada em cima da outra. vamos dizer q a pessoa ja tinha apertado em alguma parte da seção de navegação. isso iria ficar salvo lá e se a gente nao sumisse com isso iria bugar o site, por isso usamos o hidden para dar o reset e depois os ifs para executar o botão q a pessoa clicou
+    
     if (aba === 'home') {
         document.getElementById("aba-home").classList.remove("hidden");
         verificarStatusCapsula(); // Checa o status sempre que volta pra home
